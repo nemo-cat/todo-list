@@ -1,12 +1,6 @@
 let todoList = [];
 let key = 0;
 
-// 모든 버튼 클릭시 input 입력값(value) 초기화
-$("button").click(resetValue);
-function resetValue()
-{
-    document.getElementById("todo").value = "";
-}
 
 // 할일 추가하는 함수
 function addTodo()
@@ -26,7 +20,13 @@ function addTodo()
         date: writeDate
     }
     addTodoSuccess(newTodo);
+    resetValue() //input값 초기화
     key++;
+}
+
+function resetValue()
+{
+    document.getElementById("todo").value = "";
 }
 
 //성공하면 투두리스트에 추가 후 저장
