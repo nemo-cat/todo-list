@@ -12,6 +12,15 @@ function addTodo()
     let day = currentDate.getDate();
     let writeDate = year + "." + month + "." + day;
 
+    resetValue() //input값 초기화
+    // 공백 체크하기
+    let checkText = text.trim();
+    if(checkText == '')
+        {
+            alert('할일을 입력해주세요!');
+            return;
+        }
+
     //새로운 투두 생성
     let newTodo = {
         index: key,
@@ -20,7 +29,6 @@ function addTodo()
         date: writeDate
     }
     addTodoSuccess(newTodo);
-    resetValue() //input값 초기화
     key++;
 }
 
