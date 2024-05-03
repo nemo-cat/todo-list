@@ -1,0 +1,238 @@
+/* ======== setting ======== */
+@charset "utf-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+body {
+    height: 100vh;
+    min-height: 485px;
+    padding: 50px;
+    font-family: "Noto Sans KR", sans-serif;
+    color: #333;
+    background: linear-gradient(135deg, #f1e9ff, #ffecf3);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+.hide {
+    overflow: hidden;
+    display: block;
+    position: absolute;
+    border: 0;
+    width: 1px;
+    height: 1px;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+.clear:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.clear {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+/* ======== style ======== */
+.wrap {
+    position: relative;
+    max-width: 600px;
+    height: calc(100%);
+    margin: 0 auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px 4px rgba(46, 13, 52, 0.3);
+}
+
+.wrap h1 {
+    line-height: 50px;
+    text-align: center;
+    font-size: 24px;
+    color: #4b4b4b;
+}
+
+.input_box {
+    position: relative;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.input_box input[type="text"] {
+    width: 100%;
+    height: 50px;
+    font-size: 12px;
+    text-indent: 20px;
+    color: #4b4b4b;
+    border: 1px solid #ffe6e6;
+    border-radius: 50px;
+}
+
+.input_box input[type="text"]::placeholder {
+    font-family: "Noto Sans KR", sans-serif;
+    color: #ddd;
+}
+
+/* input_box hover */
+.input_box:hover #btn_add {
+    background-color: #ffc4c4;
+}
+
+.input_box:hover input[type="text"] {
+    outline: 1px solid #ffc4c4;
+}
+
+/* input_box click */
+.input_box input[type="text"]:focus {
+    outline: none;
+    outline: 1px solid #ffc4c4;
+}
+.input_box input[type="text"]:focus::placeholder {
+    color: #4b4b4b;
+}
+
+.input_box input[type="text"]:focus + #btn_add {
+    background-color: #ffc4c4;
+}
+
+/* button style */
+button {
+    height: 50px;
+    font-size: 12px;
+    color: #fff;
+    background: #ffe6e6;
+    border: none;
+    border-radius: 50px;
+}
+
+button#btn_add {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    width: 80px;
+    background: url(../images/ico_add.png) no-repeat center #ffe6e6;
+    border-radius: 50px;
+}
+
+/* todo_list li */
+.todo_list {
+    height: calc(100% - 220px);
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+}
+
+.todo_list::-webkit-scrollbar {
+    display: none;
+}
+
+.todo_list li {
+    position: relative;
+    height: 50px;
+    padding: 0 10px;
+    line-height: 50px;
+    font-size: 14px;
+    color: #4b4b4b;
+}
+
+.todo_list li:hover {
+    background: #fafafa;
+}
+
+.todo_list li input[type="checkbox"] {
+    position: absolute;
+    left: -50000px;
+}
+
+.todo_list li input[type="checkbox"] + label {
+    padding: 0 0 0 40px;
+    background: url(../images/ico_check_normal.png) no-repeat left;
+    transition: all 0.3s;
+}
+
+.todo_list li input[type="checkbox"]:checked + label {
+    text-decoration: line-through;
+    background-image: url(../images/ico_check_active.png);
+}
+
+.todo_list li #btn_delete {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background: url(../images/ico_delete_noraml.png) no-repeat center;
+    transition: all 0.3s;
+}
+
+.todo_list li #btn_delete:hover {
+    background-image: url(../images/ico_delete_acive.png);
+}
+
+.bottom_button {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bottom_button #btn_deleteAll {
+    width: 150px;
+    background: #f3f3f3;
+    color: #4b4b4b;
+}
+
+.bottom_button #btn_deleteAll:hover {
+    background-color: #ffc4c4;
+    color: #fff;
+}
+
+/* ======== mobile ======== */
+@media screen and (max-width: 767px) {
+    body {
+        min-width: 320px;
+        padding: 15px;
+    }
+
+    .wrap {
+        padding: 15px 10px;
+    }
+
+    .input_box {
+        padding: 5px 0;
+    }
+
+    button#btn_add {
+        top: 5px;
+    }
+
+    .todo_list {
+        height: calc(100% - 170px);
+    }
+
+    .todo_list li {
+        padding: 0 5px;
+    }
+
+    .todo_list li input[type="checkbox"] + label {
+        padding: 0 0 0 30px;
+    }
+
+    .bottom_button {
+        bottom: 15px;
+    }
+}

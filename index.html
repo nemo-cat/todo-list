@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Todo list</title>
+        <link rel="icon" href="images/favicon.ico" >
+        <link rel="stylesheet" href="style/style.css" />
+        <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="script/script.js"></script>
+    </head>
+    <body>
+        <div class="wrap">
+            <h1>Todo List</h1>
+            <div class="input_box clear">
+                <input id="todo" type="text" placeholder="할일을 입력해주세요." onkeyup="saveTextByEnter()" />
+                <button id="btn_add" onclick="addTodo()">
+                    <span class="hide">할일추가</span>
+                </button>
+            </div>
+            <ul id="todoList" class="todo_list"></ul>
+            <div class="bottom_button">
+                <button id="btn_deleteAll" onclick="deleteAll()">전체지우기</button>
+            </div>
+        </div>
+
+        <script>
+            window.onload = function()
+            {
+                loadTodoList();
+            }
+        </script>
+    </body>
+</html>
+ 
