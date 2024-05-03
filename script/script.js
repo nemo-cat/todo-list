@@ -49,7 +49,6 @@ function saveLocalstorge()
 function refreshTodoList()
 {
     $("#todoList").html(""); //중복방지를 위해 리스트 비움
-    key = 0;
     if(todoList) //todoList에 값이 있어야 다음 실행(혹시모를 오류방지)
     {
         for(let i = 0; i < todoList.length; i++)
@@ -58,6 +57,8 @@ function refreshTodoList()
             $("#todoList").append(appendTodoList(todoList[i].index, todoList[i].text, todoList[i].checked));
         }
     }
+    
+    key = todoList.length;
     saveLocalstorge() //로컬스토리지 저장
 }
 
