@@ -49,6 +49,7 @@ function saveLocalstorge()
 function refreshTodoList()
 {
     $("#todoList").html(""); //중복방지를 위해 리스트 비움
+    key = 0;
     if(todoList) //todoList에 값이 있어야 다음 실행(혹시모를 오류방지)
     {
         for(let i = 0; i < todoList.length; i++)
@@ -102,9 +103,10 @@ function deleteTodo(index)
 // 전체 목록 지우는 함수
 function deleteAll(button)
 {
-   todoList = []; //todoList 비우기
-   window.localStorage.clear();//로컬스토리지 초기화
-   $("#todoList").html(""); //html 비우기
+    key = 0; //index값 초기화
+    todoList = []; //todoList 비우기
+    window.localStorage.clear();//로컬스토리지 초기화
+    $("#todoList").html(""); //html 비우기
 }
 
 // label을 클릭했을때, checkbox가 체크되었는지 확인하는 함수
